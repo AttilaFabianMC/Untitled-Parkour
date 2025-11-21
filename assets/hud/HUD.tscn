@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://dibv46cl4np8m"]
+
+[ext_resource type="Script" uid="uid://cgau15igq7p3i" path="res://scripts/hud.gd" id="1_wdteo"]
+[ext_resource type="Script" uid="uid://1q3656lq3oa8" path="res://scripts/levelname.gd" id="2_ksr3u"]
+[ext_resource type="Script" uid="uid://db12d5aik0y08" path="res://scripts/timer.gd" id="2_xcp1d"]
+[ext_resource type="FontFile" uid="uid://cxwafwtckyuhc" path="res://fonts/RFR.ttf" id="3_ksr3u"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_wdteo")
+
+[node name="Levelname" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -34.0
+offset_right = 99.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.7764706, 0.7764706, 0.7764706, 0.63529414)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ksr3u")
+theme_override_font_sizes/font_size = 40
+text = "Level:"
+script = ExtResource("2_ksr3u")
+
+[node name="Timer" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_top = -598.0
+offset_right = 39.0
+offset_bottom = -558.0
+script = ExtResource("2_xcp1d")
+
+[node name="time" type="Label" parent="Timer"]
+layout_mode = 0
+offset_left = 1066.0
+offset_top = 594.0
+offset_right = 1154.0
+offset_bottom = 622.0
+theme_override_colors/font_color = Color(0.80049086, 0.80049074, 0.80049074, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ksr3u")
+theme_override_font_sizes/font_size = 32
+text = "Time"
+
+[node name="timer" type="Label" parent="Timer"]
+layout_mode = 0
+offset_left = 1028.0
+offset_top = 617.0
+offset_right = 1156.0
+offset_bottom = 670.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ksr3u")
+theme_override_font_sizes/font_size = 38
+text = "00.00"
+
+[node name="Timer" type="Timer" parent="Timer"]
+
+[node name="DEBUG" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.52156866)
+theme_override_fonts/font = ExtResource("3_ksr3u")
+text = "Version: Testing Version?.?
+character version: 0.1
+hud version: 0.1
+godot version: 4.5.1"
+
+[connection signal="timeout" from="Timer/Timer" to="Timer" method="on_timer_timeout"]

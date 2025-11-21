@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://gbqj36vqp61v"]
+
+[ext_resource type="Texture2D" uid="uid://bwnbifiww3dj5" path="res://assets/menuassets/Logo.png" id="1_obrqb"]
+[ext_resource type="Theme" uid="uid://cqpvkmjos1j07" path="res://assets/themes/button.tres" id="2_v1ppo"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1167.0
+offset_bottom = 658.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-239, -61)
+scale = Vector2(4.30218, 4.1274633)
+texture = ExtResource("1_obrqb")
+centered = false
+offset = Vector2(79.3, 10.615)
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 543.0
+offset_right = 1140.0
+offset_bottom = 646.0
+theme = ExtResource("2_v1ppo")
+theme_override_font_sizes/font_size = 40
+text = "EXIT"
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 406.0
+offset_top = 384.0
+offset_right = 746.0
+offset_bottom = 487.0
+theme = ExtResource("2_v1ppo")
+theme_override_font_sizes/font_size = 40
+text = "PLAY"

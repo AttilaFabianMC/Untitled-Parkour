@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://blwurl1tedtcy"]
+
+[ext_resource type="Script" uid="uid://do6y3vnp55rhn" path="res://scripts/levelselect/playerlevelselect.gd" id="1_erx6p"]
+[ext_resource type="Texture2D" uid="uid://bdbr2j1r3rq4h" path="res://assets/images/character/small.png" id="1_ytrqe"]
+[ext_resource type="AudioStream" uid="uid://xy2ontga51jj" path="res://sounds/Jump.wav" id="2_erx6p"]
+[ext_resource type="AudioStream" uid="uid://c75j0epuy6di7" path="res://sounds/walkingsound.wav" id="3_tfuir"]
+[ext_resource type="PackedScene" uid="uid://15hyrsont25e" path="res://assets/hud/levelselecthud.tscn" id="4_ytrqe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87anj"]
+size = Vector2(11, 16)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_erx6p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ytrqe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_87anj")
+
+[node name="Walljump2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_erx6p")
+volume_db = -8.988
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_erx6p")
+volume_db = -8.988
+pitch_scale = 1.49
+
+[node name="Wall Jump rc left" type="RayCast2D" parent="."]
+target_position = Vector2(-9, 0)
+
+[node name="Wall jump rc right" type="RayCast2D" parent="."]
+target_position = Vector2(8, 0)
+
+[node name="walljumpwait" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="walkingsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tfuir")
+volume_db = 3.852
+pitch_scale = 1.09
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(58, -30)
+offset = Vector2(61.2, 0)
+ignore_rotation = false
+zoom = Vector2(2.855, 2.855)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 50.0
+
+[node name="Levelselectlayer" parent="." instance=ExtResource("4_ytrqe")]

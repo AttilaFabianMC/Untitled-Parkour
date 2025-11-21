@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cqpvkmjos1j07"]
+
+[ext_resource type="FontFile" uid="uid://cxwafwtckyuhc" path="res://fonts/RFR.ttf" id="1_8722f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1ppo"]
+skew = Vector2(0.17, 0)
+
+[resource]
+Button/fonts/font = ExtResource("1_8722f")
+Button/styles/hover = SubResource("StyleBoxFlat_v1ppo")

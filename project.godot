@@ -1,0 +1,35 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Untitled-Parkour"
+config/version="ALMOST DONE 1.0"
+config/tags=PackedStringArray("challenging", "fun", "parkour", "platformer")
+run/main_scene="uid://gbqj36vqp61v"
+config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
+Transition="*res://assets/transition.tscn"
+
+[dotnet]
+
+project/assembly_name="Untitled-Parkour"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg")
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

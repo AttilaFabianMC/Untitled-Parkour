@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=4 uid="uid://0rm451rbfa4j"]
+
+[ext_resource type="Texture2D" uid="uid://cnn46ercxyq2c" path="res://assets/images/blocks/Levelselectwhiteblock.png" id="1_fiurf"]
+[ext_resource type="FontFile" uid="uid://cxwafwtckyuhc" path="res://fonts/RFR.ttf" id="2_27o68"]
+[ext_resource type="PackedScene" uid="uid://blwurl1tedtcy" path="res://assets/hud/player.levelselecttscn.tscn" id="2_fiurf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sas3u"]
+texture = ExtResource("1_fiurf")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_tjj1w"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_sas3u")
+
+[node name="Levelselectscreen" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(109, 345)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_tjj1w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 109.0
+offset_top = 345.0
+offset_right = 382.0
+offset_bottom = 418.0
+
+[node name="Playerlevelselect" parent="." instance=ExtResource("2_fiurf")]
+position = Vector2(150, 336)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 151.0
+offset_top = 374.0
+offset_right = 337.0
+offset_bottom = 397.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_27o68")
+text = "LEVEL 1 - BEGINING"

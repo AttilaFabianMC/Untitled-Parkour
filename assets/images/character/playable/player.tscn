@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://svvjrtwrq8sx"]
+
+[ext_resource type="Script" uid="uid://x34c4nvijcei" path="res://scripts/player.gd" id="1_n6bmx"]
+[ext_resource type="Texture2D" uid="uid://bdbr2j1r3rq4h" path="res://assets/images/character/small.png" id="1_po1nd"]
+[ext_resource type="AudioStream" uid="uid://xy2ontga51jj" path="res://sounds/Jump.wav" id="3_4ilst"]
+[ext_resource type="AudioStream" uid="uid://c75j0epuy6di7" path="res://sounds/walkingsound.wav" id="4_28vpj"]
+[ext_resource type="PackedScene" uid="uid://dibv46cl4np8m" path="res://assets/hud/HUD.tscn" id="5_sycwn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ilst"]
+size = Vector2(11, 16)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_n6bmx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_po1nd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_4ilst")
+
+[node name="Walljump2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4ilst")
+volume_db = -8.988
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4ilst")
+volume_db = -8.988
+pitch_scale = 1.49
+
+[node name="Wall Jump rc left" type="RayCast2D" parent="."]
+target_position = Vector2(-9, 0)
+
+[node name="Wall jump rc right" type="RayCast2D" parent="."]
+target_position = Vector2(8, 0)
+
+[node name="walljumpwait" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="walkingsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_28vpj")
+volume_db = 3.852
+pitch_scale = 1.09
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(58, -30)
+offset = Vector2(61.2, 0)
+ignore_rotation = false
+zoom = Vector2(3.325, 3.325)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 50.0
+
+[node name="HUD" parent="." instance=ExtResource("5_sycwn")]
